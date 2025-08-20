@@ -1,0 +1,29 @@
+{
+  "name": "rabbit-log-puller",
+  "version": "1.0.0",
+  "description": "Log puller for personal project in rabbitMQ",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RakaiSeto/rabbit-log-puller.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RakaiSeto/rabbit-log-puller/issues"
+  },
+  "homepage": "https://github.com/RakaiSeto/rabbit-log-puller#readme",
+  "dependencies": {
+    "amqplib": "^0.10.8",
+    "dotenv": "^17.2.1",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.7",
+    "@types/node": "^24.3.0",
+    "@types/pg": "^8.15.5"
+  }
+}
