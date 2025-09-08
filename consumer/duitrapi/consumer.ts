@@ -1,6 +1,7 @@
 import amqp from 'amqplib';
 import { getDbConnection } from '../../lib/db'; // Hypothetical DB connection function
 import { Pool } from 'pg';
+import { getSecret } from '../../utils/secret';
 
 const QUEUE_NAME = "DUITRAPI_ACT_LOG";
 const DB_NAME = "duitrapi";
@@ -37,7 +38,7 @@ async function processMessage(msg: amqp.ConsumeMessage | null): Promise<void> {
 
 export const consumerDuitrapi = {
   start: async (): Promise<void> => {
-    const connection = await amqp.connect(process.env.RABBITMQ_URL!);
+    const connection = await amqp.connect(getSecret('RABBITMQ_URL')!);
     channel = await connection.createChannel();
     const queueName = QUEUE_NAME;
 

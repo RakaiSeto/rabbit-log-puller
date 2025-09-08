@@ -1,12 +1,13 @@
 import { Pool } from 'pg';
+import { getSecret } from '../utils/secret';
 // Initialize the PostgreSQL connection pool
 export const getDbConnection = (database: string): Pool => {
     return new Pool({
-        user: process.env.DB_USER!,
-        host: process.env.DB_HOST!,
+        user: getSecret('DB_USER'),
+        host: getSecret('DB_HOST'),
         database: database,
-        password: process.env.DB_PASSWORD!,
-        port: parseInt(process.env.DB_PORT!),
+        password: getSecret('DB_PASSWORD'),
+        port: parseInt(getSecret('DB_PORT')!),
     });
 };
 

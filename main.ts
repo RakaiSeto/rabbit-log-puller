@@ -1,5 +1,6 @@
 import { consumerDuitrapi } from './consumer/duitrapi/consumer';
 import dotenv from 'dotenv';
+import { getSecret } from './utils/secret';
 dotenv.config();
 
 async function startApp() {
