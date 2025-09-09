@@ -31,6 +31,7 @@ WORKDIR /usr/src/app
 # The --only=production flag is now handled by npm's own logic during install.
 COPY --chown=appuser:appgroup --from=builder /usr/src/app/dist ./dist
 COPY --chown=appuser:appgroup --from=builder /usr/src/app/ecosystem.config.js .
+COPY --chown=appuser:appgroup --from=builder /usr/src/app/node_modules ./node_modules
 COPY --chown=appuser:appgroup --from=builder /usr/src/app/package*.json .
 # Copy any other necessary files
 # COPY --from=builder /usr/src/app/dist ./dist
