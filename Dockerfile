@@ -29,9 +29,9 @@ WORKDIR /usr/src/app
 
 # Copy only the necessary production files and dependencies
 # The --only=production flag is now handled by npm's own logic during install.
-COPY --from=builder /usr/src/app/node_modules ./node_modules
-COPY --from=builder /usr/src/app/ecosystem.config.js .
-COPY --from=builder /usr/src/app/main.ts .
+COPY --chown=appuser:appgroup --from=builder /usr/src/app/dist ./dist
+COPY --chown=appuser:appgroup --from=builder /usr/src/app/ecosystem.config.js .
+COPY --chown=appuser:appgroup --from=builder /usr/src/app/package*.json .
 # Copy any other necessary files
 # COPY --from=builder /usr/src/app/dist ./dist
 
