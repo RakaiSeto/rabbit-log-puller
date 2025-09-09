@@ -45,7 +45,7 @@ function processMessage(msg) {
 }
 exports.consumerDuitrapi = {
     start: () => __awaiter(void 0, void 0, void 0, function* () {
-        const connection = yield amqplib_1.default.connect((0, secret_1.getSecret)('RABBITMQ_URL'));
+        const connection = yield amqplib_1.default.connect((0, secret_1.getSecretFromKey)('db', 'RABBITMQ_URL'));
         channel = yield connection.createChannel();
         const queueName = QUEUE_NAME;
         yield channel.assertQueue(queueName, { durable: true });

@@ -15,11 +15,11 @@ const secret_1 = require("../utils/secret");
 // Initialize the PostgreSQL connection pool
 const getDbConnection = (database) => {
     return new pg_1.Pool({
-        user: (0, secret_1.getSecret)('DB_USER'),
-        host: (0, secret_1.getSecret)('DB_HOST'),
+        user: (0, secret_1.getSecretFromKey)('db', 'DB_USER'),
+        host: (0, secret_1.getSecretFromKey)('db', 'DB_HOST'),
         database: database,
-        password: (0, secret_1.getSecret)('DB_PASSWORD'),
-        port: parseInt((0, secret_1.getSecret)('DB_PORT')),
+        password: (0, secret_1.getSecretFromKey)('db', 'DB_PASSWORD'),
+        port: parseInt((0, secret_1.getSecretFromKey)('db', 'DB_PORT')),
     });
 };
 exports.getDbConnection = getDbConnection;
